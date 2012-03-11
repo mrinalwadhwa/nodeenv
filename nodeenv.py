@@ -220,7 +220,7 @@ def callit(cmd, show_stdout=True, in_shell=False,
     try:
         proc = subprocess.Popen(
             cmd, stderr=subprocess.STDOUT, stdin=None, stdout=stdout,
-            cwd=cwd, env=env, shell=in_shell)
+            cwd=cwd, env=env, shell=in_shell, executable="/bin/bash")
     except Exception:
         e = sys.exc_info()[1]
         logger.error("Error %s while executing command %s" % (e, cmd_desc))
